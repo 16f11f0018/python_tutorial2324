@@ -9,11 +9,8 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
-import os
 import django_heroku
-
-
+import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -87,13 +84,6 @@ DATABASES = {
 }
 
 
-
-
-# Configure Django App for Heroku.
-
-django_heroku.settings(locals())
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -114,6 +104,10 @@ USE_TZ = True
 STATIC_ROOT = "app-root/repo/wsgi/static"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+# Configure Django App for Heroku.
+
+django_heroku.settings(locals())
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
